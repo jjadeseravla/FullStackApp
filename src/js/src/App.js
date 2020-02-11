@@ -1,19 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { getAllStudents } from './client';
 
 //takes response and grabs json inside of it
 function App() {
 
-  getAllStudents()
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    fetchStudents();
+  }, [])
+
+  function fetchStudents() {
+     getAllStudents()
       .then(res => res.text()
       .then(students => {
-    console.log(students);
-  }))
+        setState({
+          students: students
+        });
+        console.log(students)
+    }))
+  }
 
-  return (
-   <h1>hello world springboot and react</h1>
-  )
+  // const { students  = this.props}
+
+  // if (students && students.length) {
+  //   students.map((student, id) => {
+      return (
+      <div>
+        <h1>Students</h1>
+        {/*<div id={id}>*/}
+        <div>
+          <h2>
+            {/*<p>{this.setState(students)}</p>*/}
+            {/*<p>{student.firstName}</p>*/}
+            {/*<p>{student.secondName}</p>*/}
+            {/*<p>{student.gender}</p>*/}
+            {/*<p>{student.email}</p>*/}
+          </h2>
+        </div>
+      </div>
+      )
 }
 
 export default App;
