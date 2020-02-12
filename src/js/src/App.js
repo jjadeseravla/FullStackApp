@@ -22,6 +22,8 @@ function App() {
     }))
   }
 
+  //this.students = this.students.bind(this)
+
   // const { students  = this.props}
 
   // if (students && students.length) {
@@ -32,7 +34,7 @@ function App() {
         {/*<div id={id}>*/}
         <div>
           <h2>
-            {/*<p>{this.setState(students)}</p>*/}
+            <p>{state.students}</p>
             {/*<p>{student.firstName}</p>*/}
             {/*<p>{student.secondName}</p>*/}
             {/*<p>{student.gender}</p>*/}
