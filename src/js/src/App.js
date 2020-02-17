@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllStudents } from './client';
+
 //takes response and grabs json inside of it
 function App() {
     const [state, setState] = useState({students:[]});
@@ -22,29 +23,36 @@ function App() {
 
     // if (students && students.length) {
     //   students.map((student, id) => {
-    function displayLogic(){
+    //function displayLogic(){
         // for (let i = 0; i < state.students.length; i++) {
         //     toreturn.push(<h2><p>{state.students[i].firstName}</p></h2>);
         // }
         // });
         //
         // return toreturn;
-    }
-    if (state.students.length){
+    // }
+    if (state.students && state.students.length){
+
         return (
             <div>
                 <h1>Students</h1>
                 <div>
                     {state.students.map((student) =>
-                        <h2><p>{student.firstName}
-                        {student.secondName}</p></h2>
+                        <div>
+                            <h2>{student.studentId}</h2>
+                            <p>{student.firstName}</p>
+                            <p>{student.secondName}</p>
+                            <p>{student.gender}</p>
+                            <p>{student.email}</p>
+                        </div>
                     )}
                 </div>
             </div>
         )
     }
-    else{
-        return ("No one")
-    }
+        return ("No Students found")
+
 }
+
+
 export default App;
