@@ -2,6 +2,7 @@ package com.jade.fullstackapp.student;
 
 import java.util.UUID;
 
+
 public class StudentModel {
 
     private final UUID studentId;
