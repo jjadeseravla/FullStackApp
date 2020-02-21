@@ -30,12 +30,27 @@ public class StudentDataAccessService {
                 " gender " +
                 "FROM student";
 
-        List<StudentModel> students = jdbcTemplate.query(sql, (resultSet, i) -> { //want a jdbctemplate method that takes an sql statement and roadmapper
+        return jdbcTemplate.query(sql, (resultSet, i) -> { //want a jdbctemplate method that takes an sql statement and roadmapper
             //the resultset is what we take as raw data and transform into a student
             //converting data from DB to a java object
-            return null;
-        });
 
-        return null;
+            //grab contents of each column with resultset
+            String studentIdStr = resultSet.getString("student_id");
+            UUID studentId = UUID.fromString(studentIdStr);
+
+            String firstName = resultSet.getString("first_name");
+            String secondName = resultSet.getString("second_name");
+            String email = resultSet.getString("email");
+            String genderStr = resultSet.getString("gender").toUpperCase();
+            StudentModel.Gender gender = StudentModel.Gender.valueOf(genderStr);
+
+            return new StudentModel(
+                    studentId,
+                    firstName,
+                    secondName,
+                    email,
+                    gender
+            );
+        });
     }
 }
