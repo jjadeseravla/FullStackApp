@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllStudents } from './client';
+import { Footer } from './Footer';
 
 //takes response and grabs json inside of it
 function App() {
@@ -21,21 +22,12 @@ function App() {
             })
     }
 
-    // if (students && students.length) {
-    //   students.map((student, id) => {
-    //function displayLogic(){
-        // for (let i = 0; i < state.students.length; i++) {
-        //     toreturn.push(<h2><p>{state.students[i].firstName}</p></h2>);
-        // }
-        // });
-        //
-        // return toreturn;
-    // }
     if (state.students && state.students.length){
 
         return (
             <div>
                 <h1>Students</h1>
+                        <Footer />
                 <div>
                     {state.students.map((student) =>
                         <div>
