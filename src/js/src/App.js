@@ -18,16 +18,17 @@ function App() {
                     console.log(state.students[0]['firstName']);
                 });
                 console.log(typeof students)
-                // console.log(state.students[0]['firstName']);
             })
     }
 
-    if (state.students && state.students.length){
+    var numberOfStudents = state.students.length
+    if (state.students && numberOfStudents){
 
         return (
             <div>
                 <h1>Students</h1>
-                        <Footer />
+                <Footer />
+                <h2>Number of Students: </h2>{numberOfStudents ? numberOfStudents : null}
                 <div>
                     {state.students.map((student) =>
                         <div>
