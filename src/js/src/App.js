@@ -5,7 +5,6 @@ import { Contents } from './Contents';
 //takes response and grabs json inside of it
 function App() {
     const [state, setState] = useState({students:[]});
-    // const [handleAddStudentClickEvent, setHandleAddStudentClickEvent] = useState(false);
     useEffect(() => {
         fetchStudents();
     }, [])
@@ -23,22 +22,18 @@ function App() {
             })
     }
 
-    // const toggle = () => setHandleAddStudentClickEvent(!handleAddStudentClickEvent);
-
     var numberOfStudents = state.students.length
     if (state.students && numberOfStudents){
 
         return (
             <div>
                 <h1>Students</h1>
-                {/*<Footer onClick={toggle} />*/}
                 <Contents />
-                {/*<Footer handleAddStudentClickEvent={handleAddStudentClickEvent} seeHandleAddStudentClickEvent={setHandleAddStudentClickEvent}/>*/}
                 <h2>Number of Students: </h2>{numberOfStudents ? numberOfStudents : null}
 
                 <div>
-                    {state.students.map((student) =>
-                        <div>
+                    {state.students.map((student, index) =>
+                        <div key={index}>
                             <h2>{student.studentId}</h2>
                             <p>{student.firstName}</p>
                             <p>{student.secondName}</p>
