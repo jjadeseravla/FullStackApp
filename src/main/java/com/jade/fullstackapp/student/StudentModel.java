@@ -1,5 +1,7 @@
 package com.jade.fullstackapp.student;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 
@@ -11,11 +13,14 @@ public class StudentModel {
     private final String email;
     private final Gender gender;
 
-    public StudentModel(UUID studentId,
-                        String firstName,
-                        String secondName,
-                        String email,
-                        Gender gender) {
+    //receive a JSON payload, and then i Want to map all the JSON properties i get from the client
+    //to the strings in brackets so i can have an instance of the studentmodel class in the
+    //student controller
+    public StudentModel(@JsonProperty("studentId") UUID studentId,
+                        @JsonProperty("firstName")String firstName,
+                        @JsonProperty("secondName")String secondName,
+                        @JsonProperty("email")String email,
+                        @JsonProperty("gender")Gender gender) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.secondName = secondName;
