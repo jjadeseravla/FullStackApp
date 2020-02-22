@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { addNewStudent } from "./client";
 
 function NewStudentForm() {
     const [firstName, setFirstName] = useState("");
@@ -28,30 +29,43 @@ function NewStudentForm() {
             isSubmitting: true,
             errorMessage: null
         });
-        fetch("https://localhost:8080/api/students", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
+
+        addNewStudent(firstName, secondName, email, gender).then(() => {
+            alert(JSON.stringify({
                 firstName: data.firstName,
                 secondName: data.secondName,
                 email: data.email,
                 gender: data.gender
-            })
+            }))
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                throw res;
-            })
+
+        // fetch("https://localhost:8080/api/students", {
+        //     method: "post",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         firstName: data.firstName,
+        //         secondName: data.secondName,
+        //         email: data.email,
+        //         gender: data.gender
+        //     })
+        // })
+        //     .then(res => {
+        //         if (res.ok) {
+        //             return res.json();
+        //         }
+        //         throw res;
+        //     })
+
+
             // .then(resJson => {
             //     dispatch({
             //         type: "LOGIN",
             //         payload: resJson
             //     })
             // })
+
             .catch(error => {
                 setData({
                     ...data,
