@@ -27,6 +27,6 @@ public class StudentController {
     //get JSON payload from request body and transform it
     public void addNewStudent(@RequestBody StudentModel student) {
         System.out.println(student);
+        studentService.addNewStudent(student);
     }
-
 }
