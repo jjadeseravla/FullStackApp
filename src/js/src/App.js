@@ -5,9 +5,11 @@ import { Footer } from './Footer';
 //takes response and grabs json inside of it
 function App() {
     const [state, setState] = useState({students:[]});
+    // const [handleAddStudentClickEvent, setHandleAddStudentClickEvent] = useState(false);
     useEffect(() => {
         fetchStudents();
     }, [])
+
     function fetchStudents() {
         getAllStudents()
             .then(res => res.json())
@@ -21,14 +23,19 @@ function App() {
             })
     }
 
+    // const toggle = () => setHandleAddStudentClickEvent(!handleAddStudentClickEvent);
+
     var numberOfStudents = state.students.length
     if (state.students && numberOfStudents){
 
         return (
             <div>
                 <h1>Students</h1>
+                {/*<Footer onClick={toggle} />*/}
                 <Footer />
+                {/*<Footer handleAddStudentClickEvent={handleAddStudentClickEvent} seeHandleAddStudentClickEvent={setHandleAddStudentClickEvent}/>*/}
                 <h2>Number of Students: </h2>{numberOfStudents ? numberOfStudents : null}
+
                 <div>
                     {state.students.map((student) =>
                         <div>
