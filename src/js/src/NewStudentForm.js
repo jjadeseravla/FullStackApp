@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { addNewStudent } from "./client";
 
 function NewStudentForm() {
     const [firstName, setFirstName] = useState("");
@@ -20,45 +21,57 @@ function NewStudentForm() {
             [event.target.name]: event.target.value
         });
     };
+
     const handleFormSubmit = event => {
-        console.log(alert(JSON.stringify(data, null, 2)));
+        //console.log(alert(JSON.stringify(data, null, 2)));
         event.preventDefault();
         setData({
             ...data,
             isSubmitting: true,
             errorMessage: null
-        });
-        fetch("https://localhost:8080/api/students", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                firstName: data.firstName,
-                secondName: data.secondName,
-                email: data.email,
-                gender: data.gender
-            })
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                throw res;
-            })
+            addNewStudent(student).then(
+                alert(JSON.stringify(student))
+            )
+        )
+
+
+        // fetch("https://localhost:8080/api/students", {
+        //     method: "post",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         firstName: data.firstName,
+        //         secondName: data.secondName,
+        //         email: data.email,
+        //         gender: data.gender
+        //     })
+        // })
+
+
+            // .then(res => {
+            //     if (res.ok) {
+            //         return res.json();
+            //     }
+            //     throw res;
+            // })
             // .then(resJson => {
             //     dispatch({
             //         type: "LOGIN",
             //         payload: resJson
             //     })
             // })
-            .catch(error => {
-                setData({
-                    ...data,
-                    isSubmitting: false,
-                    errorMessage: error.message || error.statusText
-                });
-            });
+
+
+
+            // .catch(error => {
+            //     setData({
+            //         ...data,
+            //         isSubmitting: false,
+            //         errorMessage: error.message || error.statusText
+            //     });
+            // });
     };
 
     return (
