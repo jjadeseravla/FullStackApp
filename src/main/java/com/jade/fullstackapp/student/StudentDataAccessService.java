@@ -2,6 +2,7 @@ package com.jade.fullstackapp.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
@@ -20,7 +21,7 @@ public class StudentDataAccessService {
     }
     //this class allows us to connect to our db
 
-    public List<StudentModel> selectAllStudents() {
+    List<StudentModel> selectAllStudents() {
         String sql = "" +
                 "SELECT " +
                 " student_id, " +
@@ -30,7 +31,11 @@ public class StudentDataAccessService {
                 " gender " +
                 "FROM student";
 
-        return jdbcTemplate.query(sql, (resultSet, i) -> { //want a jdbctemplate method that takes an sql statement and roadmapper
+        return jdbcTemplate.query(sql, mapStudentFromDB());
+    }
+
+    private RowMapper<StudentModel> mapStudentFromDB() {
+        return (resultSet, i) -> { //want a jdbctemplate method that takes an sql statement and roadmapper
             //the resultset is what we take as raw data and transform into a student
             //converting data from DB to a java object
 
@@ -51,6 +56,6 @@ public class StudentDataAccessService {
                     email,
                     gender
             );
-        });
+        };
     }
 }
