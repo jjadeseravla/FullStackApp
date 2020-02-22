@@ -15,12 +15,12 @@ function NewStudentForm() {
     // }}
 
     const [data, setData] = React.useState(firstName, secondName, email, gender);
-    const handleInputChange = event => {
-        setData({
-            ...data,
-            [event.target.name]: event.target.value
-        });
-    };
+    // const handleInputChange = event => {
+    //     setData({
+    //         ...data,
+    //         [event.target.name]: event.target.value
+    //     });
+    // };
     const handleFormSubmit = event => {
         console.log(alert(JSON.stringify(data, null, 2)));
         event.preventDefault();
@@ -30,7 +30,8 @@ function NewStudentForm() {
             errorMessage: null
         });
 
-        addNewStudent(firstName, secondName, email, gender).then(() => {
+        console.log({firstName, secondName, email, gender})
+        addNewStudent({firstName, secondName, email, gender}).then(() => {
             alert(JSON.stringify({
                 firstName: data.firstName,
                 secondName: data.secondName,
@@ -80,8 +81,8 @@ function NewStudentForm() {
             <input
                 // value={firstName}
                 value={data.firstName}
-                // onChange={e => setFirstName(e.target.value)}
-                onChange={handleInputChange}
+                onChange={e => setFirstName(e.target.value)}
+                //onChange={handleInputChange}
                 placeholder="First name"
                 type="text"
                 name="firstName"
@@ -90,8 +91,8 @@ function NewStudentForm() {
             <input
                 // value={secondName}
                 value={data.secondName}
-                // onChange={e => setSecondName(e.target.value)}
-                onChange={handleInputChange}
+                onChange={e => setSecondName(e.target.value)}
+                //onChange={handleInputChange}
                 placeholder="Second name"
                 type="text"
                 name="secondName"
@@ -100,8 +101,8 @@ function NewStudentForm() {
             <input
                 // value={email}
                 value={data.email}
-                // onChange={e => setEmail(e.target.value)}
-                onChange={handleInputChange}
+                onChange={e => setEmail(e.target.value)}
+                // onChange={handleInputChange}
                 placeholder="Email address"
                 type="email"
                 name="email"
@@ -110,8 +111,8 @@ function NewStudentForm() {
             <input
                 // value={gender}
                 value={data.gender}
-                // onChange={e => setGender(e.target.value)}
-                onChange={handleInputChange}
+                onChange={e => setGender(e.target.value)}
+                //onChange={handleInputChange}
                 placeholder="Gender. E.g Male or Female"
                 type="gender"
                 name="gender"

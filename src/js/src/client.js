@@ -9,17 +9,5 @@ export const addNewStudent = (student) =>
         },
         method: 'POST',
         body: JSON.stringify(student)
+        //body: JSON.stringify({firstName: "David", secondName: "OLeary", email: "dol@gmail.com", gender:"MALE"})
 });
-
-//fetch("https://localhost:8080/api/students", {
-//     method: "post",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//         firstName: data.firstName,
-//         secondName: data.secondName,
-//         email: data.email,
-//         gender: data.gender
-//     })
-// })
