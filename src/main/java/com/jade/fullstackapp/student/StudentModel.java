@@ -43,6 +43,17 @@ public class StudentModel {
         return gender;
     }
 
+    @Override
+    public String toString() {
+        //press control enter to get the option of making a toString method
+        return "StudentModel{" +
+                "studentId=" + studentId +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                '}';
+    }
 
     enum Gender {
         MALE, FEMALE

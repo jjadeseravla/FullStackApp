@@ -2,6 +2,7 @@ package com.jade.fullstackapp.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,11 @@ public class StudentController {
     @GetMapping
     public List<StudentModel> getAllStudents() {
         return studentService.getAllStudents();
+    }
+
+    @PostMapping
+    public void addNewStudent(StudentModel student) {
+        System.out.println(student);
     }
 
 }
