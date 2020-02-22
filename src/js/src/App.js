@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllStudents } from './client';
-import { Footer } from './Footer';
+import { Contents } from './Contents';
 
 //takes response and grabs json inside of it
 function App() {
@@ -32,7 +32,7 @@ function App() {
             <div>
                 <h1>Students</h1>
                 {/*<Footer onClick={toggle} />*/}
-                <Footer />
+                <Contents />
                 {/*<Footer handleAddStudentClickEvent={handleAddStudentClickEvent} seeHandleAddStudentClickEvent={setHandleAddStudentClickEvent}/>*/}
                 <h2>Number of Students: </h2>{numberOfStudents ? numberOfStudents : null}
 

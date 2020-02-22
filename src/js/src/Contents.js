@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { NewComponent } from './NewComponent';
+import  NewStudentForm  from './NewStudentForm';
 
-export function Footer() {
+export function Contents() {
 
     const [handleAddStudentClickEvent, setHandleAddStudentClickEvent] = useState(false);
 
@@ -12,7 +12,7 @@ export function Footer() {
         <button onClick={toggleTrueFalse}>
             Add new Student +
         </button>
-        {handleAddStudentClickEvent ? <NewComponent/> : null}
+        {handleAddStudentClickEvent ? <NewStudentForm/> : null}
     </div>
     )
 };
