@@ -6,7 +6,7 @@ Navigate to ```src/js``` folder from the root and ```npm install```
 all dependencies.  Then run ```npm start```
 ### BackEnd:
 Install all specific dependencies in Pom.xml by running Maven and 
-navigate to ```main/java/com/jade/fullstackapp/FullstackappApplication```
+navigate to <br />```main/java/com/jade/fullstackapp/FullstackappApplication```
 and play this file.  
 
 
@@ -14,21 +14,21 @@ and play this file.
 
 ```docker ps```
 Get your image from docker ps and run the following command
-to get into bash shell: 
-```docker exec -it [image id] /bin/bash```
-Run ```psql -U postgres -W``` to get into psql shell (credentials and set up are in
-application.properties file) and it will ask for the password.
-Lists DBs:
-```\l```
-To get into the DB shell:
-```\c [name of DB]```
-To Exit:
-```exit```
-To see all ports running:
-```lsof -i tcp:[port]```
-Reconnect to postgres:
-```psql postgresql://0.0.0.0:5432 -U postgres [name of DB]```
-For on/off expanded display in postgres shell:
+to get into bash shell:<br /> 
+```docker exec -it [image id] /bin/bash```<br />
+Run: <br />```psql -U postgres -W```<br /> to get into psql shell (credentials and set up are in
+application.properties file) and it will ask for the password.<br />
+Lists DBs:<br />
+```\l```<br />
+To get into the DB shell:<br />
+```\c [name of DB]```<br />
+To Exit:<br />
+```exit```<br />
+To see all ports running:<br />
+```lsof -i tcp:[port]```<br />
+Reconnect to postgres:<br />
+```psql postgresql://0.0.0.0:5432 -U postgres [name of DB]```<br />
+For on/off expanded display in postgres shell:<br />
 ```\x```
 
 ### Tech Used:
