@@ -34,6 +34,26 @@ public class StudentDataAccessService {
         return jdbcTemplate.query(sql, mapStudentFromDB());
     }
 
+    int insertStudent(UUID studentId, StudentModel student) {
+        String sql = "" +
+                "INSERT INTO student (" +
+                "student_id," +
+                " firstName, " +
+                "secondName, " +
+                "email, " +
+                "gender" +
+                "VALUES (?, ?, ?, ?, ?)" ; //5 as one is for studentId
+        return jdbcTemplate.update( //to interact with DB use JdbcTemplate
+                sql,
+                studentId,
+                student.getFirstName(),
+                student.getSecondName(),
+                student.getEmail(),
+                student.getGender().name().toUpperCase()
+        );
+        //if update result is successful, itll be 1 or a 0
+    }
+
     private RowMapper<StudentModel> mapStudentFromDB() {
         return (resultSet, i) -> { //want a jdbctemplate method that takes an sql statement and roadmapper
             //the resultset is what we take as raw data and transform into a student
