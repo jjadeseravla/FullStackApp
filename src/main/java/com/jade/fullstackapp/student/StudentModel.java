@@ -2,15 +2,26 @@ package com.jade.fullstackapp.student;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 
 public class StudentModel {
 
     private final UUID studentId;
+
+    @NotBlank //must not be null
     private final String firstName;
+
+    @NotBlank
     private final String secondName;
+
+    @Email
     private final String email;
+
+    @NotNull
     private final Gender gender;
 
     //receive a JSON payload, and then i Want to map all the JSON properties i get from the client
