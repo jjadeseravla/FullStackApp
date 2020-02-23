@@ -1,5 +1,7 @@
 package com.jade.fullstackapp.student;
 
+import com.jade.fullstackapp.EmailValidator;
+import com.jade.fullstackapp.Exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +13,13 @@ import java.util.UUID;
 public class StudentService {
 
     private final StudentDataAccessService studentDataAccessService;
+    private final EmailValidator emailValidator;
 
     @Autowired
-    public StudentService(StudentDataAccessService studentDataAccessService) {
+    public StudentService(StudentDataAccessService studentDataAccessService,
+                          EmailValidator emailValidator) {
         this.studentDataAccessService = studentDataAccessService;
+        this.emailValidator = emailValidator;
     }
 
     List<StudentModel> getAllStudents() {
@@ -32,6 +37,11 @@ public class StudentService {
         UUID newStudentId = Optional.ofNullable(studentId)
                 .orElse(UUID.randomUUID());
 
+        //validate email
+        if (!emailValidator.test(student.getEmail())) {
+            throw new ApiRequestException(student.getEmail() + " is not valid");
+
+        }
         // TODO: verify email not taken
 
         studentDataAccessService.insertStudent(newStudentId, student);
