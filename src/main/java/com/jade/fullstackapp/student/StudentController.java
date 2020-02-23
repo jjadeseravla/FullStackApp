@@ -20,7 +20,8 @@ public class StudentController {
 
     @GetMapping
     public List<StudentModel> getAllStudents() {
-        return studentService.getAllStudents();
+        throw new IllegalStateException("Problem! Cannot get all students");
+        //return studentService.getAllStudents();
     }
 
     @PostMapping

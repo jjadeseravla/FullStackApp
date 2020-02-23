@@ -17,9 +17,15 @@ function App() {
                     students: students
                 }, ()=>{
                     console.log(state.students[0]['firstName']);
-                });
+                })
                 console.log(typeof students)
             })
+            .catch(error => {
+                console.log(error.error.message);
+                setState({
+                    students: []
+                });
+            });
     }
 
     var numberOfStudents = state.students.length

@@ -10,7 +10,7 @@ function NewStudentForm() {
     const [data, setData] = React.useState(firstName, secondName, email, gender);
 
     const handleFormSubmit = event => {
-        console.log(alert(JSON.stringify(data, null, 2)));
+        //console.log(alert(JSON.stringify(data, null, 2)));
         event.preventDefault();
         setData({
             ...data,
@@ -18,7 +18,7 @@ function NewStudentForm() {
             errorMessage: null
         });
 
-        console.log({firstName, secondName, email, gender})
+        //console.log({firstName, secondName, email, gender})
         addNewStudent({firstName, secondName, email, gender}).then(() => {
             alert(JSON.stringify({
                 firstName: data.firstName,

@@ -17,6 +17,9 @@ and play this file.
 - PostgreSQL
 - Docker
 
+### TO DO:
+Fix UI for successful submission of a new student
+
 ### Postgres
 
 ```docker ps```
