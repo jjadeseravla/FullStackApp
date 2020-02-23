@@ -37,12 +37,16 @@ public class StudentService {
         UUID newStudentId = Optional.ofNullable(studentId)
                 .orElse(UUID.randomUUID());
 
-        //validate email
+        // TODO: validate email(not showing up on postman message)
         if (!emailValidator.test(student.getEmail())) {
             throw new ApiRequestException(student.getEmail() + " is not valid");
 
         }
-        // TODO: verify email not taken
+
+        if (studentDataAccessService.isEmailTaken(student.getEmail())) {
+            throw new ApiRequestException(student.getEmail() + " is taken");
+
+        }
 
         studentDataAccessService.insertStudent(newStudentId, student);
     }
