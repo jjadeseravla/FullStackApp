@@ -9,6 +9,13 @@ Install all specific dependencies in Pom.xml by running Maven and
 navigate to <br />```main/java/com/jade/fullstackapp/FullstackappApplication```
 and play this file.  
 
+### Tech Used:
+- React.js (with unfetch library)
+- Java 8
+- Spring boot 2.1.2
+- HTML and CSS
+- PostgreSQL
+- Docker
 
 ### Postgres
 
@@ -31,10 +38,3 @@ Reconnect to postgres:<br />
 For on/off expanded display in postgres shell:<br />
 ```\x```
 
-### Tech Used:
-- React.js (with unfetch library)
-- Java 8
-- Spring boot 2.1.2
-- HTML and CSS
-- PostgreSQL
-- Docker

@@ -37,12 +37,12 @@ public class StudentDataAccessService {
     int insertStudent(UUID studentId, StudentModel student) {
         String sql = "" +
                 "INSERT INTO student (" +
-                "student_id," +
-                " firstName, " +
-                "secondName, " +
-                "email, " +
-                "gender" +
-                "VALUES (?, ?, ?, ?, ?)" ; //5 as one is for studentId
+                " student_id," +
+                " first_name, " +
+                " second_name, " +
+                " email, " +
+                " gender)" +
+                "VALUES (?, ?, ?, ?, ?)"; //5 as one is for studentId
         return jdbcTemplate.update( //to interact with DB use JdbcTemplate
                 sql,
                 studentId,
