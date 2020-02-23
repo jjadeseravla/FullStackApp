@@ -5,11 +5,11 @@ export function Contents() {
 
     const [handleAddStudentClickEvent, setHandleAddStudentClickEvent] = useState(false);
 
-    const toggleTrueFalse = () => setHandleAddStudentClickEvent(!handleAddStudentClickEvent);
+    const toggleAddStudentForm = () => setHandleAddStudentClickEvent(!handleAddStudentClickEvent);
 
     return (
     <div>
-        <button onClick={toggleTrueFalse}>
+        <button onClick={toggleAddStudentForm}>
             Add new Student +
         </button>
         {handleAddStudentClickEvent ? <NewStudentForm/> : null}

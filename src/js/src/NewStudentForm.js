@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { addNewStudent } from "./client";
+import { SuccessMessage }  from './SuccessMessage';
 
 function NewStudentForm() {
     const [firstName, setFirstName] = useState("");
     const [secondName, setSecondName] = useState("");
     const [email, setEmail] = useState("");
     const [gender, setGender] = useState("");
+
+    const [handleSubmit, setHandleSubmit] = useState(false);
+    const toggleSubmitMessage = () => setHandleSubmit(!handleSubmit);
 
     const [data, setData] = React.useState(firstName, secondName, email, gender);
 
@@ -70,13 +74,14 @@ function NewStudentForm() {
                 name="gender"
                 required
             />
-            <button type="submit" disabled={data.isSubmitting}>
+            <button type="submit" disabled={data.isSubmitting} onClick={toggleSubmitMessage}>
                 {data.isSubmitting ? (
                     "Loading..."
                 ) : (
                     "Submit"
                 )}
             </button>
+            {handleSubmit ? <SuccessMessage/> : null}
         </form>
     );
 }
