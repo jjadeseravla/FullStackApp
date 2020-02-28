@@ -1,5 +1,8 @@
 # Full Stack App
 
+MAKE SURE YOU GO INTO .BASH_PROFILE IN ROOT AND MAKE VERSION AT THE BOTTOM JAVA 11
+AND THEN SOURCE .BASH_PROFILE AND CHECK THE CORRECT VERSION BY JAVA -VERSION
+
 ## To Run:
 ### FrontEnd:
 Navigate to ```src/js``` folder from the root and ```npm install```
@@ -40,4 +43,7 @@ Reconnect to postgres:<br />
 ```psql postgresql://0.0.0.0:5432 -U postgres [name of DB]```<br />
 For on/off expanded display in postgres shell:<br />
 ```\x```
+Adding a migration, you need to check if it is included in 
+flyway migrations history record in the DB shell: </br>
+```select * from flyway_schema_history ```
 
