@@ -42,7 +42,8 @@ public class StudentDataAccessService {
                 " second_name, " +
                 " email, " +
                 " gender)" +
-                "VALUES (?, ?, ?, ?, ?)"; //5 as one is for studentId
+                "VALUES (?, ?, ?, ?, ?::gender)"; //5 as one is for studentId
+//        /how we cast into a gender (the postgres enum)
         return jdbcTemplate.update( //to interact with DB use JdbcTemplate
                 sql,
                 studentId,
