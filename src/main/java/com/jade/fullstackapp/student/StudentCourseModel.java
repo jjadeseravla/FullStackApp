@@ -9,6 +9,7 @@ public class StudentCourseModel {
     private final UUID courseId;
     private final String name;
     private final String description;
+    private final String department;
     private final String teacherName;
     private final LocalDate startDate;
     private final LocalDate endDate;
@@ -18,6 +19,7 @@ public class StudentCourseModel {
                               UUID courseId,
                               String name,
                               String description,
+                              String department,
                               String teacherName,
                               LocalDate startDate,
                               LocalDate endDate,
@@ -26,6 +28,7 @@ public class StudentCourseModel {
         this.courseId = courseId;
         this.name = name;
         this.description = description;
+        this.department = department;
         this.teacherName = teacherName;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -45,6 +48,10 @@ public class StudentCourseModel {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getDepartment() {
+        return department;
     }
 
     public String getTeacherName() {

@@ -32,8 +32,7 @@ public class StudentController {
         @PathVariable("studentId") UUID studentId) {
 //        TODO go to DB and fetch info for a given student
 //        a student can have 0 + courses.
-        System.out.println(studentId);
-        return null;
+        return studentService.getAllCoursesForStudent(studentId);
     }
 
     @PostMapping

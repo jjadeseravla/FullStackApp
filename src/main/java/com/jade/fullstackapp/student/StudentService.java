@@ -50,4 +50,8 @@ public class StudentService {
 
         studentDataAccessService.insertStudent(newStudentId, student);
     }
+
+    public List<StudentCourseModel> getAllCoursesForStudent(UUID studentId) {
+        return studentDataAccessService.selectAllStudentCourses(studentId);
+    }
 }
