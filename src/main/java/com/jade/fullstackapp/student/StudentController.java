@@ -1,11 +1,11 @@
 package com.jade.fullstackapp.student;
 
-import com.jade.fullstackapp.Exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 //return to the client a list of students in JSON
 @RestController
@@ -25,6 +25,15 @@ public class StudentController {
         //throw new ApiRequestException("Problem! Cannot get all students with custom exception");
         //throw new IllegalStateException("Problem! Cannot get all students");
         return studentService.getAllStudents();
+    }
+
+    @GetMapping(path = "{studentId}/courses")
+    public List<StudentCourseModel> getAllCoursesForStudent(
+        @PathVariable("studentId") UUID studentId) {
+//        TODO go to DB and fetch info for a given student
+//        a student can have 0 + courses.
+        System.out.println(studentId);
+        return null;
     }
 
     @PostMapping
