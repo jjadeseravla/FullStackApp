@@ -1,8 +1,5 @@
 # Full Stack App
 
-MAKE SURE YOU GO INTO .BASH_PROFILE IN ROOT AND MAKE VERSION AT THE BOTTOM JAVA 11
-AND THEN SOURCE .BASH_PROFILE AND CHECK THE CORRECT VERSION BY JAVA -VERSION
-
 ## To Run:
 Git clone the app
 ### Docker Postgres:
@@ -31,7 +28,10 @@ all dependencies.  Then run ```npm start```
 2 - Implement a button on each student so it will toggle which courses they have enrolled in
 3 - Make the UI be able to enroll new courses for each student
 
-##Terminal Commands For:
+MAKE SURE YOU GO INTO .BASH_PROFILE IN ROOT AND MAKE VERSION AT THE BOTTOM JAVA 11
+AND THEN SOURCE .BASH_PROFILE AND CHECK THE CORRECT VERSION BY JAVA -VERSION
+
+## Terminal Commands For:
 ### Docker:
 
 ```docker ps```
