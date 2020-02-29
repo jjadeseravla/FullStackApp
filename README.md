@@ -45,5 +45,12 @@ For on/off expanded display in postgres shell:<br />
 ```\x```
 Adding a migration, you need to check if it is included in 
 flyway migrations history record in the DB shell: </br>
-```select * from flyway_schema_history ```
+```select * from flyway_schema_history ``` </br>
+To create a UUID on DB shell:
+```create extension "uuid-ossp";```</br>
+```SELECT uuid_generate_v[number]();```</br>
+Create a join table of student_id and course_id with inbuilt PSQL functions for dates:
+``` INSERT INTO student_course (student_id, course_id, start_date, end_date)
+   VALUES ('xxxxxxxx-xxxx-xxxx-xxxx-8e294d318c89', 'xxxxxxxx-xxxx-xxxx-9874-73d40fb34edd',
+   NOW()::DATE, (NOW() + INTERVAL '1 YEAR')::DATE);```
 
