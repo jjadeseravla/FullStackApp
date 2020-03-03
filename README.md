@@ -1,4 +1,4 @@
-# Full Stack App
+# Full Stack App :)
 
 ## To Run:
 Git clone the app
