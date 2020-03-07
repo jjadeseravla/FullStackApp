@@ -23,14 +23,6 @@ all dependencies.  Then run ```npm start```
 - PostgreSQL
 - Docker
 
-### TO DO:
-1 - Fix UI for successful submission of a new student
-2 - Implement a button on each student so it will toggle which courses they have enrolled in
-3 - Make the UI be able to enroll new courses for each student
-
-MAKE SURE YOU GO INTO .BASH_PROFILE IN ROOT AND MAKE VERSION AT THE BOTTOM JAVA 11
-AND THEN SOURCE .BASH_PROFILE AND CHECK THE CORRECT VERSION BY JAVA -VERSION
-
 ## Terminal Commands For:
 ### Docker:
 
@@ -56,8 +48,8 @@ Reconnect to postgres:<br />
 For on/off expanded display in postgres shell:<br />
 ```\x```
 Adding a migration, you need to check if it is included in 
-flyway migrations history record in the DB shell: </br>
-```select * from flyway_schema_history ``` </br>
+flyway migrations history record in the DB shell:</br>
+```select * from flyway_schema_history ```</br>
 To create a UUID on DB shell:
 ```create extension "uuid-ossp";```</br>
 ```SELECT uuid_generate_v[number]();```</br>
@@ -68,8 +60,16 @@ Create a join table of student_id and course_id with inbuilt PSQL functions for 
 ## Packaging App for Deployment:
 Added Maven front end plugin to pom.xml to make a build folder with static content to be able to add to resources
 by running:
-```mvn clean install -P[name of app]```
-The plugin copies the build folder into the target folder and also creates a ```[appname]-0.0.1-SNAPSHOT.jar``` file that runs the app.
+```mvn clean install -P[name of app]```</br>
+The plugin copies the build folder into the target folder and also creates a ```[appname]-0.0.1-SNAPSHOT.jar``` file that runs the app.</br>
 Run jar file for compiled classes and files to run the app:
-```cd target/```
+```cd target/```</br>
 ```java -jar fullstackapp-0.0.1-SNAPSHOT.jar ```
+
+### TO DO:
+1 - Fix UI for successful submission of a new student </br>
+2 - Implement a button on each student so it will toggle which courses they have enrolled in </br>
+3 - Make the UI be able to enroll new courses for each student </br>
+
+MAKE SURE YOU GO INTO .BASH_PROFILE IN ROOT AND MAKE VERSION AT THE BOTTOM JAVA 11
+AND THEN SOURCE .BASH_PROFILE AND CHECK THE CORRECT VERSION BY JAVA -VERSION
