@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<frontend-maven-plugin>1.6</frontend-maven-plugin>
+		<frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
 		<node.version>v10.13.0</node.version>
 		<yarn.version>v1.12.1</yarn.version>
 	</properties>
@@ -39,7 +39,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-<!--			<scope>runtime</scope>-->
+			<!--			<scope>runtime</scope>-->
 		</dependency>
 
 		<!-- jpa, crud repository -->
@@ -66,16 +66,18 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+
 	<profiles>
 		<profile>
-			<id>demo</id>
+			<id>fullstackapp</id>
 			<build>
 				<plugins>
 
 					<plugin>
 						<groupId>com.github.eirslett</groupId>
 						<artifactId>frontend-maven-plugin</artifactId>
-<!--						<version>LATEST_VERSION</version>-->
+						<version>${frontend-maven-plugin.version}</version>
 						<configuration>
 							<workingDirectory>src/js</workingDirectory>
 						</configuration>
