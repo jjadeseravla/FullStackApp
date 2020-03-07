@@ -70,3 +70,6 @@ Added Maven front end plugin to pom.xml to make a build folder with static conte
 by running:
 ```mvn clean install -P[name of app]```
 The plugin copies the build folder into the target folder and also creates a ```[appname]-0.0.1-SNAPSHOT.jar``` file that runs the app.
+Run jar file for compiled classes and files to run the app:
+```cd target/```
+```java -jar fullstackapp-0.0.1-SNAPSHOT.jar ```
