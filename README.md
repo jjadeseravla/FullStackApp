@@ -62,7 +62,11 @@ To create a UUID on DB shell:
 ```create extension "uuid-ossp";```</br>
 ```SELECT uuid_generate_v[number]();```</br>
 Create a join table of student_id and course_id with inbuilt PSQL functions for dates:
-``` INSERT INTO student_course (student_id, course_id, start_date, end_date)
-   VALUES ('xxxxxxxx-xxxx-xxxx-xxxx-8e294d318c89', 'xxxxxxxx-xxxx-xxxx-9874-73d40fb34edd',
-   NOW()::DATE, (NOW() + INTERVAL '1 YEAR')::DATE);```
-
+``` INSERT INTO student_course (student_id, course_id, start_date, end_date) VALUES ('xxxxxxxx-xxxx-xxxx-xxxx-8e294d318c89', 'xxxxxxxx-xxxx-xxxx-9874-73d40fb34edd', NOW()::DATE, (NOW() + INTERVAL '1 YEAR')::DATE); ```
+   
+  
+## Packaging App for Deployment:
+Added Maven front end plugin to pom.xml to make a build folder with static content to be able to add to resources
+by running:
+```mvn clean install -P[name of app]```
+The plugin copies the build folder into the target folder and also creates a ```[appname]-0.0.1-SNAPSHOT.jar``` file that runs the app.
