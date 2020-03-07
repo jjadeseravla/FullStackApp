@@ -9,7 +9,7 @@ import java.util.UUID;
 
 //return to the client a list of students in JSON
 @RestController
-@RequestMapping("students") //tells port its localhost:8080/student
+@RequestMapping("api/students") //tells port its localhost:8080/student
 public class StudentController {
 
     public final StudentService studentService;
