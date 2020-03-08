@@ -45,4 +45,10 @@ public class StudentController {
         //some constraints inside this class
         studentService.addNewStudent(student);
     }
+
+    @DeleteMapping("{studentId}")
+    public void deleteStudent(@PathVariable("studentId") UUID studentId) {
+        studentService.deleteStudent(studentId);
+    }
+
 }

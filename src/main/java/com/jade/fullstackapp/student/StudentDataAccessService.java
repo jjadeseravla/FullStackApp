@@ -138,4 +138,11 @@ public class StudentDataAccessService {
                 );
 
     }
+
+    public int deleteStudentById(UUID studentId) {
+        String sql = "" +
+                "DELETE FROM student" +
+                "WHERE student_id = ?";
+        return jdbcTemplate.update(sql, studentId);
+    }
 }
