@@ -146,6 +146,11 @@
 					</plugin>
 				</plugins>
 			</build>
+			<properties>
+				<spring.profiles.active>
+					fullstackapp
+				</spring.profiles.active>
+			</properties>
 		</profile>
 	</profiles>
 
