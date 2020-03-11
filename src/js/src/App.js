@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllStudents } from './client';
 import { Contents } from './Contents';
+import { DeleteStudent } from './DeleteStudent';
 
 //takes response and grabs json inside of it
 function App() {
@@ -45,6 +46,7 @@ function App() {
                             <p>{student.secondName}</p>
                             <p>{student.gender}</p>
                             <p>{student.email}</p>
+                            {/*<button onClick={<DeleteStudent />}>Delete Student</button>*/}
                         </div>
                     )}
                 </div>
