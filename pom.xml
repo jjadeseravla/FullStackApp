@@ -168,8 +168,8 @@
 							<goal>repackage</goal>
 						</goals>
 						<configuration>
-							<mainClass>com.stackify.Application</mainClass>
-							<outputDirectory>FullStackApp</outputDirectory>
+							<mainClass>com.jade.fullstackapp.FullstackappApplication</mainClass>
+							<outputDirectory>buildoutput</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
