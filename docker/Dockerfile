@@ -1,6 +1,7 @@
 # Alpine Linux with OpenJDK JRE
 FROM openjdk:8-jre-alpine
 # copy WAR into image
-COPY fullstackapp-0.0.1-SNAPSHOT.war /app.war
+#COPY fullstackapp-0.0.1-SNAPSHOT.jar /app.jar
+COPY target/fullstackapp-0.0.1-SNAPSHOT.jar /app.jar
 # run application with this command line
-CMD ["/target", "-jar", "-Dspring.profiles.active=default", "/app.war"]
+CMD ["/target", "-jar", "-Dspring.profiles.active=default", "/app.jar"]

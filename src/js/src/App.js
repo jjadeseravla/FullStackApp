@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { getAllStudents } from './client';
-import { Contents } from './Contents';
-import { DeleteStudent } from './DeleteStudent';
+import React, {useState, useEffect} from 'react';
+import {getAllStudents} from './client';
+import {Contents} from './Contents';
+import {DeleteStudent} from './DeleteStudent';
 
 //takes response and grabs json inside of it
 function App() {
-    const [state, setState] = useState({students:[]});
+    const [state, setState] = useState({students: []});
     useEffect(() => {
         fetchStudents();
     }, [])
@@ -16,7 +16,7 @@ function App() {
             .then(students => {
                 setState({
                     students: students
-                }, ()=>{
+                }, () => {
                     console.log(state.students[0]['firstName']);
                 })
                 console.log(typeof students)
@@ -30,11 +30,11 @@ function App() {
     }
 
     var numberOfStudents = state.students.length
-    if (state.students && numberOfStudents){
+    if (state.students && numberOfStudents) {
 
         return (
             <div>
-                <h1>Students</h1>
+                <h1>Studentsss</h1>
                 <Contents />
                 <h2>Number of Students: </h2>{numberOfStudents ? numberOfStudents : null}
 
@@ -53,7 +53,12 @@ function App() {
             </div>
         )
     }
-        return ("No Students found")
+    return (
+        <div>
+            <Contents/>
+            No Students found
+        </div>
+    )
 
 }
 
