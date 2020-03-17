@@ -1,0 +1,6 @@
+postgres-data
+target
+buildoutput
+.idea
+.mvn
+docker-compose.yml
