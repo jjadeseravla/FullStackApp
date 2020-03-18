@@ -1,0 +1,25 @@
+---
+resources:
+  - name: fullstackapp
+    type: git
+    icon: github-circle
+    source:
+      uri: https://github.com/jjadeseravla/FullStackApp
+
+jobs:
+  - name: job
+    public: true
+    plan:
+      - get: fullstackapp
+        trigger: true
+      - task: list-files
+        config:
+          inputs:
+            - name: fullstackapp
+          platform: linux
+          image_resource:
+            type: registry-image
+            source: { repository: maven }
+          run:
+            path: mvn
+            args: ["test"]
