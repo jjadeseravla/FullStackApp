@@ -28,6 +28,19 @@ local-java-run:
 
 local-react-install:
 	cd src/js && npm install
-	
+
 local-react-run:
 	cd src/js && npm start
+
+concourse-update: need-env-DOCKERHUB_PASSWORD
+	fly set-pipeline -c pipeline.yml -p FullStackApp -t local -v dhpassword="$$DOCKERHUB_PASSWORD"
+
+concourse-login-local:
+	fly --target local login --concourse-url http://localhost:8080
+
+# you can specify that you have to have env variables
+need-env-%:
+	@if [ -z "$($*)" ]; then \
+		echo "Missing environment variable: $*" >&2; \
+		exit 1; \
+	fi

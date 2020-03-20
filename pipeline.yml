@@ -5,9 +5,16 @@ resources:
     icon: github-circle
     source:
       uri: https://github.com/jjadeseravla/FullStackApp
+  - name: fullstackapp-docker-image
+    type: docker-image
+    source:
+      email: "jade.alvares@clearchannelint.com"
+      username: "ccrocket"
+      password: ((dhpassword))
+      repository: ccrocket/fullstackapp
 
 jobs:
-  - name: job
+  - name: fullstackapp
     public: true
     plan:
       - get: fullstackapp
@@ -24,3 +31,6 @@ jobs:
             dir: fullstackapp
             path: mvn
             args: ["test"]
+      - put: fullstackapp-docker-image
+        params:
+          build: fullstackapp
